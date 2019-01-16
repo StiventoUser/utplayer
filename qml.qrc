@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>BrowseView.qml</file>
+        <file>LeftBrowsePanel.qml</file>
+        <file>TopBrowsePanel.qml</file>
+        <file>VideosView.qml</file>
+        <file>UserButton.qml</file>
+        <file>SearchFieldItem.qml</file>
+    </qresource>
+</RCC>
