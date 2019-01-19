@@ -1,0 +1,9 @@
+#pragma once
+
+namespace api
+{
+
+constexpr auto ClientId = "@API_CLIENT_ID@";
+constexpr auto ClientSecret = "@API_CLIENT_SECRET@";
+
+}
