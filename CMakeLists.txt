@@ -25,13 +25,14 @@ conan_cmake_run(
 	BUILD missing
 	)
 
-set(SOURCES
-	main.cpp
-	)
+find_package(Qt5 COMPONENTS Core Quick QuickControls2 Network NetworkAuth REQUIRED)
 
-find_package(Qt5 COMPONENTS Core Quick QuickControls2 REQUIRED)
+file(GLOB HEADERS include/*)
+file(GLOB SOURCES src/*)
+file(GLOB QML qml/*)
 
 add_executable(${PROJECT_NAME}
+	${HEADERS}
 	${SOURCES}
 	"qml.qrc"
 	)
@@ -45,5 +46,11 @@ target_link_libraries(${PROJECT_NAME}
 		Qt5::Core
 		Qt5::Quick
 		Qt5::QuickControls2
+		Qt5::Network
+		Qt5::NetworkAuth
 		CONAN_PKG::cpprestsdk
 	)
+
+source_group(headers ${HEADERS})
+source_group(sources ${SOURCES})
+source_group(qml ${QML})

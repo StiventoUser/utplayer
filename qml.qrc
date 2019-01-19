@@ -1,11 +1,11 @@
 <RCC>
     <qresource prefix="/">
-        <file>main.qml</file>
-        <file>BrowseView.qml</file>
-        <file>LeftBrowsePanel.qml</file>
-        <file>TopBrowsePanel.qml</file>
-        <file>VideosView.qml</file>
-        <file>UserButton.qml</file>
-        <file>SearchFieldItem.qml</file>
+        <file>qml/main.qml</file>
+        <file>qml/BrowseView.qml</file>
+        <file>qml/LeftBrowsePanel.qml</file>
+        <file>qml/TopBrowsePanel.qml</file>
+        <file>qml/VideosView.qml</file>
+        <file>qml/UserButton.qml</file>
+        <file>qml/SearchFieldItem.qml</file>
     </qresource>
 </RCC>
