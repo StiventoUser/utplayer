@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.4)
 
 project(utplayer LANGUAGES CXX)
 
@@ -7,6 +7,8 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+include(cmake/utils.cmake)
 
 # Run conan on cmake configure step.
 # Download automatically, you can also just copy the conan.cmake file
@@ -21,36 +23,10 @@ include(${CMAKE_BINARY_DIR}/conan.cmake)
 conan_cmake_run(
 	REQUIRES
 		cpprestsdk/2.10.2@bincrafters/stable
+		jsonformoderncpp/3.5.0@vthiery/stable
 	BASIC_SETUP CMAKE_TARGETS
 	BUILD missing
 	)
 
-find_package(Qt5 COMPONENTS Core Quick QuickControls2 Network NetworkAuth REQUIRED)
-
-file(GLOB HEADERS include/*)
-file(GLOB SOURCES src/*)
-file(GLOB QML qml/*)
-
-add_executable(${PROJECT_NAME}
-	${HEADERS}
-	${SOURCES}
-	"qml.qrc"
-	)
-
-target_compile_definitions(${PROJECT_NAME}
-	PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>
-	)
-
-target_link_libraries(${PROJECT_NAME}
-	PRIVATE
-		Qt5::Core
-		Qt5::Quick
-		Qt5::QuickControls2
-		Qt5::Network
-		Qt5::NetworkAuth
-		CONAN_PKG::cpprestsdk
-	)
-
-source_group(headers ${HEADERS})
-source_group(sources ${SOURCES})
-source_group(qml ${QML})
+add_subdirectory(modules/app)
+add_subdirectory(modules/libapi)
