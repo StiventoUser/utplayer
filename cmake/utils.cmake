@@ -38,11 +38,16 @@ function(make_fs_source_group_for_target target)
 	get_target_property(TARGET_SOURCES "${target}" SOURCES)
 
 	foreach(TARGET_SOURCE ${TARGET_SOURCES})
+		if(IS_ABSOLUTE "${TARGET_SOURCE}")
+			file(RELATIVE_PATH  TARGET_SOURCE "${CMAKE_SOURCE_DIR}" "${TARGET_SOURCE}")
+		endif()
+
 		get_filename_component(TARGET_SOURCE_DIR "${TARGET_SOURCE}" DIRECTORY)
-		
+
 		if("${TARGET_SOURCE_DIR}" STREQUAL "")
 			set(TARGET_SOURCE_DIR "misc")
 		endif()
+
 		string(REPLACE "/" "\\" TARGET_SOURCE_DIR ${TARGET_SOURCE_DIR})
 
 		map_append_value_to_key(SOURCE_MAP "${TARGET_SOURCE_DIR}" "${TARGET_SOURCE}")
@@ -51,7 +56,7 @@ function(make_fs_source_group_for_target target)
 	map_get_keys(SOURCE_MAP MAP_KEYS)
 	foreach(KEY ${MAP_KEYS})
 		map_get_values_for_key(SOURCE_MAP "${KEY}" MAP_VALUES)
-#		message(STATUS "Files\\${KEY}: ${MAP_VALUES}")
+		message(STATUS "Files\\${KEY}: ${MAP_VALUES}")
 		source_group("Files\\${KEY}" FILES ${MAP_VALUES})
 	endforeach(KEY)
 endfunction()
