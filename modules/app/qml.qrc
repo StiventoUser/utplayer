@@ -7,5 +7,7 @@
         <file>qml/VideosView.qml</file>
         <file>qml/UserButton.qml</file>
         <file>qml/SearchFieldItem.qml</file>
+        <file>qml/VideoRectangleDelegate.qml</file>
+        <file>js/time.js</file>
     </qresource>
 </RCC>

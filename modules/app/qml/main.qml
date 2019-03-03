@@ -2,39 +2,50 @@ import QtQuick 2.11
 import QtQuick.Window 2.11
 import QtQuick.Controls 2.4
 import QtQuick.Controls.Universal 2.3
-import api.YtMethods 1.0
 
-ApplicationWindow
-{
-    id: root
+import api.GApiMethods 1.0
 
-    visible: true
-    width: 1280
-    height: 960
-    title: qsTr("UT Player")
+ApplicationWindow {
+	id: root
 
-    Universal.theme: Universal.Dark
-    Universal.accent: Universal.Red
+	visible: true
+	width: 1280
+	height: 960
+	title: qsTr("UT Player")
 
-    BrowseView
-    {
-        anchors.fill: parent
-    }
+	Universal.theme: Universal.Dark
+	Universal.accent: Universal.Red
 
-    YtWrapper
-    {
-        authUri: AuthUri
-        clientId: ClientId
-        clientSecret: ClientSecret
-        redirectUri: RedirectUri
-        tokenUri: TokenUri
+	BrowseView {
+		id: view
+		anchors.fill: parent
 
-        Component.onCompleted: {
-            Authorize();
-        }
+		commandExecutor: executor
+	}
 
-        onAccessGranted: {
-            root.title = "Granted"
-        }
-    }
+	GApiWrapper {
+		id: apiWrapper
+
+		accessData: AccessData
+
+		Component.onCompleted: {
+
+			//authorize();
+		}
+
+		onAccessGranted: {
+			root.title = "Granted"
+		}
+	}
+
+	UserProfile {
+		id: userProfile
+	}
+
+	GApiCommandExecutor {
+		id: executor
+
+		apiWrapper: apiWrapper
+		userProfile: userProfile
+	}
 }

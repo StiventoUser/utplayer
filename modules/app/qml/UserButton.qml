@@ -1,9 +1,8 @@
 import QtQuick 2.0
 
-Rectangle
-{
-    //color: "yellow"
+Rectangle {
 
-    width: 50
-    height: 50
+	//color: "yellow"
+	width: 50
+	height: 50
 }

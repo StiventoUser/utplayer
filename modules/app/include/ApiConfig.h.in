@@ -8,5 +8,6 @@ constexpr auto ClientSecret = "@API_CLIENT_SECRET@";
 constexpr auto AuthUri = "@API_AUTH_URI@";
 constexpr auto RedirectUri = "@API_REDIRECT_URI@";
 constexpr auto TokenUri = "@API_TOKEN_URI@";
+constexpr auto AccessKey = "@API_ACCESS_KEY@";
 
 }

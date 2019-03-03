@@ -26,6 +26,7 @@ set(QML
 	qml/SearchFieldItem.qml
 	qml/TopBrowsePanel.qml
 	qml/UserButton.qml
+	qml/VideoRectangleDelegate.qml
 	qml/VideosView.qml
 	)
 

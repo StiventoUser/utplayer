@@ -1,3 +1,8 @@
+#include <cpprest/details/basic_types.h>
+#include <cpprest/base_uri.h>
+#include <cpprest/oauth2.h>
+#include <cpprest/http_listener.h>
+#include <cpprest/http_client.h>
 #include <QDebug>
 #include <QDesktopServices>
 #include <QUrl>
@@ -13,7 +18,7 @@ OAuth2CodeListener::OAuth2CodeListener(web::uri listen_uri, web::http::oauth2::e
 {
 	listener_->support([this](web::http::http_request request)
 	{
-		if (request.request_uri().path() == U("/") && request.request_uri().query() != U(""))
+		if (request.request_uri().path() == _XPLATSTR("/") && request.request_uri().query() != _XPLATSTR(""))
 		{
 			std::unique_lock<std::mutex> lock(resplock_);
 
@@ -32,11 +37,11 @@ OAuth2CodeListener::OAuth2CodeListener(web::uri listen_uri, web::http::oauth2::e
 					}
 			});
 
-			request.reply(web::http::status_codes::OK, U("Ok."));
+			request.reply(web::http::status_codes::OK, _XPLATSTR("Ok."));
 		}
 		else
 		{
-			request.reply(web::http::status_codes::NotFound, U("Not found."));
+			request.reply(web::http::status_codes::NotFound, _XPLATSTR("Not found."));
 		}
 	});
 

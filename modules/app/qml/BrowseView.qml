@@ -1,46 +1,45 @@
 import QtQuick 2.0
 import QtQuick.Controls.Universal 2.3
 
-Rectangle
-{
-    TopBrowsePanel
-    {
-        id: topPanel
+Rectangle {
+	id: root
 
-        anchors
-        {
-            left: parent.left
-            top: parent.top
-            right: parent.right
-        }
+	property var commandExecutor: null
 
-        height: 80
-    }
+	TopBrowsePanel {
+		id: topPanel
 
-    LeftBrowsePanel
-    {
-        id: leftPanel
+		anchors {
+			left: parent.left
+			top: parent.top
+			right: parent.right
+		}
 
-        anchors
-        {
-            left: parent.left
-            top: topPanel.bottom
-            bottom: parent.bottom
-        }
+		height: 80
+	}
 
-        width: 200
-    }
+	LeftBrowsePanel {
+		id: leftPanel
 
-    VideosView
-    {
-        id: videosView
+		anchors {
+			left: parent.left
+			top: topPanel.bottom
+			bottom: parent.bottom
+		}
 
-        anchors
-        {
-            left: leftPanel.right
-            top: topPanel.bottom
-            right: parent.right
-            bottom: parent.bottom
-        }
-    }
+		width: 200
+	}
+
+	VideosView {
+		id: videosView
+
+		anchors {
+			left: leftPanel.right
+			top: topPanel.bottom
+			right: parent.right
+			bottom: parent.bottom
+		}
+
+		commandExecutor: root.commandExecutor
+	}
 }

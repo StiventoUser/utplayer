@@ -4,84 +4,73 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls.Universal 2.3
 import QtGraphicalEffects 1.0
 
-Rectangle
-{
-    id: root
+Rectangle {
+	id: root
 
-    color: Universal.background
+	color: Universal.background
 
-    ColumnLayout
-    {
-        anchors.fill: parent
-        spacing: 0
+	ColumnLayout {
+		anchors.fill: parent
+		spacing: 0
 
-        property int buttonHeight: 50
+		property int buttonHeight: 50
 
-        UserButton
-        {
-            Layout.fillWidth: true
-            Layout.preferredHeight: width * 0.5
-        }
+		UserButton {
+			Layout.fillWidth: true
+			Layout.preferredHeight: width * 0.5
+		}
 
-        Button
-        {
-            text: qsTr("Recommendations")
-            Layout.fillWidth: true
-            Layout.preferredHeight: parent.buttonHeight
-            Universal.foreground: Universal.accent
-        }
+		Button {
+			text: qsTr("Recommendations")
+			Layout.fillWidth: true
+			Layout.preferredHeight: parent.buttonHeight
+			Universal.foreground: Universal.accent
+		}
 
-        Button
-        {
-            text: qsTr("Subscriptions")
-            Layout.fillWidth: true
-            Layout.preferredHeight: parent.buttonHeight
-            Universal.foreground: Universal.accent
-        }
+		Button {
+			text: qsTr("Subscriptions")
+			Layout.fillWidth: true
+			Layout.preferredHeight: parent.buttonHeight
+			Universal.foreground: Universal.accent
+		}
 
-        Button
-        {
-            text: qsTr("Channels")
-            Layout.fillWidth: true
-            Layout.preferredHeight: parent.buttonHeight
-            Universal.foreground: Universal.accent
-        }
+		Button {
+			text: qsTr("Channels")
+			Layout.fillWidth: true
+			Layout.preferredHeight: parent.buttonHeight
+			Universal.foreground: Universal.accent
+		}
 
-        Button
-        {
-            text: qsTr("Watch later")
-            Layout.fillWidth: true
-            Layout.preferredHeight: parent.buttonHeight
-            Universal.foreground: Universal.accent
-        }
+		Button {
+			text: qsTr("Watch later")
+			Layout.fillWidth: true
+			Layout.preferredHeight: parent.buttonHeight
+			Universal.foreground: Universal.accent
+		}
 
-        Button
-        {
-            text: qsTr("Playlists")
-            Layout.fillWidth: true
-            Layout.preferredHeight: parent.buttonHeight
-            Universal.foreground: Universal.accent
-        }
+		Button {
+			text: qsTr("Playlists")
+			Layout.fillWidth: true
+			Layout.preferredHeight: parent.buttonHeight
+			Universal.foreground: Universal.accent
+		}
 
-        Button
-        {
-            text: qsTr("Liked")
-            Layout.fillWidth: true
-            Layout.preferredHeight: parent.buttonHeight
-            Universal.foreground: Universal.accent
-        }
+		Button {
+			text: qsTr("Liked")
+			Layout.fillWidth: true
+			Layout.preferredHeight: parent.buttonHeight
+			Universal.foreground: Universal.accent
+		}
 
-        Button
-        {
-            text: qsTr("History")
-            Layout.fillWidth: true
-            Layout.preferredHeight: parent.buttonHeight
-            Universal.foreground: Universal.accent
-        }
+		Button {
+			text: qsTr("History")
+			Layout.fillWidth: true
+			Layout.preferredHeight: parent.buttonHeight
+			Universal.foreground: Universal.accent
+		}
 
-        Item
-        {
-            Layout.fillHeight: true
-        }
-    }
+		Item {
+			Layout.fillHeight: true
+		}
+	}
 }
